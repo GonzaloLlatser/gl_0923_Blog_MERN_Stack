@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Global } from '../../helpers/Global';
 
 
 
@@ -15,7 +16,7 @@ export const Articulos = () => {
   }, [])
 
   const conseguirArticulos = async () => {
-    const url = "http://localhost:3900/api/articulos";
+    const url = Global.url + "articulos";
     let peticion = await fetch(url, {
       method: "GET"
     });
@@ -33,28 +34,28 @@ export const Articulos = () => {
   return (
     <>
       {
-      articulos.length >=1? (
+        articulos.length >= 1 ? (
           articulos.map(articulo => {
-        return (
-          <article key={articulo._id} className="articulo-item">
-            <div className='mascara'>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
-            </div>
-            <div className='datos'>
-              <h3 className="title">{articulo.titulo} Web</h3>
-              <p className="description">{articulo.contenido}</p>
-              <button className="edit">Editar</button>
-              <button className="delete">Borrar</button>
-            </div>
-          </article>
-        );
-      })
-      )
-      :
-      (
-        <h1> No hay artículos</h1>
-      )
-    }
+            return (
+              <article key={articulo._id} className="articulo-item">
+                <div className='mascara'>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+                </div>
+                <div className='datos'>
+                  <h3 className="title">{articulo.titulo} Web</h3>
+                  <p className="description">{articulo.contenido}</p>
+                  <button className="edit">Editar</button>
+                  <button className="delete">Borrar</button>
+                </div>
+              </article>
+            );
+          })
+        )
+          :
+          (
+            <h1> No hay artículos</h1>
+          )
+      }
     </>
   )
 }
