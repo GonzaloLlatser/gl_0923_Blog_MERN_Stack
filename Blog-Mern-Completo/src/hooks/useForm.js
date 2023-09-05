@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useForm = (objetoInicial = {}) => {
+export const useForm = (ObjetoInicial = {}) => {
 
     const [formulario, setFormulario] = useState(ObjetoInicial);
 
