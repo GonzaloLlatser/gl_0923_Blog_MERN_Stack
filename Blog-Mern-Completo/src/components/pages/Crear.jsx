@@ -38,7 +38,7 @@ export const Crear = () => {
       <p>Formulario para crear un artículo</p>
 
       <strong>{resultado == "guardado" ? "Artículo guardado con exito!!" : ""}</strong>
-      <strong>{resultado == "error" ? "" : "Los datos proporcionados son incorrectos"}</strong>
+      <strong>{resultado == "error" ? "" : ""}</strong>
 
 
       {/* Montar formulario */}
